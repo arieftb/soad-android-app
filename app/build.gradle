@@ -37,12 +37,14 @@ android {
 dependencies {
 
 //    Kotlin
-    implementation dep.kotlin.core
     implementation(dep.kotlin.lib)
 
 //    Android UI
     implementation dep.android.appCompat
     implementation dep.android.material
+
+//    Android
+    implementation dep.android.kotlin
 
 //    UI Size
     implementation(dep.ui.dpUnit)
