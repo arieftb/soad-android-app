@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SOAD</string>
+
+
+    <!--  Image Description  -->
+    <string name="image_splash_logo">App logo in initial page</string>
 </resources>
