@@ -11,6 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="colorAccent">@color/pickled_blue_wood</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
