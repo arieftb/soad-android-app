@@ -22,6 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".presentation.page.login.LoginActivity"
+            android:theme="@style/Theme.SOAD.NoActionBar"/>
     </application>
 
 </manifest>

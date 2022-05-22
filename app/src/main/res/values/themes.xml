@@ -14,6 +14,11 @@
 
         <item name="colorAccent">@color/pickled_blue_wood</item>
         <!-- Customize your theme here. -->
+
+        <!--     Transition       -->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
     </style>
 
     <style name="Theme.SOAD.NoActionBar" parent="Theme.SOAD">
