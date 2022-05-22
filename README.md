@@ -41,6 +41,7 @@ How to use it?
 ------  
 - Clone this project using `git clone [url]`
 - build the project by using `./gradlew clean assembleDebug`
-- Don't forget add env `API_URL` variable inside local.properties file with value from [Dicoding Story API URL]
+- install the project to your device `./gradlew clean installDebug`
+- Don't forget add env `API_URL` variable inside `local.properties` file with value from Dicoding Story API URL
 
 *Clean Architecture will not be appropriate for every project, so it is down to you to decide whether or not it fits your needs*
