@@ -1,5 +1,5 @@
 
-SOAD - Story of a Dicoding
+SOAD - Story of a Dicoding Android App
 =====  
 
 Just very simple project to share story of dicoding users. I made this project for graduate from  Dicoding online course about "**Belajar Pengembangan Aplikasi Android Intermediate**"
