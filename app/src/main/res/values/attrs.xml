@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SoadTextInputEditText">
+        <attr name="isRequired" format="boolean" />
+        <attr name="limit" format="integer" />
+        <attr name="type" format="enum">
+            <enum name="text" value="1" />
+            <enum name="email" value="32" />
+            <enum name="password" value="128" />
+        </attr>
+    </declare-styleable>
+</resources>

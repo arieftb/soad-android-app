@@ -2,7 +2,20 @@
     <string name="app_name">soad</string>
     <string name="app_full_name">story of a dicoding</string>
 
+    <!--  Page Title  -->
+    <string name="page_title_login">Login</string>
+
+    <!--  Label  -->
+    <string name="label_field_default">Text</string>
+    <string name="label_field_email">Email</string>
+    <string name="label_field_password">Password</string>
+
+    <!--  Error Message  -->
+    <string name="error_message_field_cannot_be_empty">%s cannot be empty</string>
+    <string name="error_message_field_cannot_be_more_than_limit">%s cannot be more than %d characters</string>
+    <string name="error_message_field_email_is_in_invalid_format">Email is in invalid format</string>
 
     <!--  Image Description  -->
     <string name="image_splash_logo">App logo in initial page</string>
+    <string name="image_login_header">Image of header login</string>
 </resources>
