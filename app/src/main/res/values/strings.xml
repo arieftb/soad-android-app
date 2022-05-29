@@ -10,12 +10,16 @@
     <string name="label_field_email">Email</string>
     <string name="label_field_password">Password</string>
 
+    <string name="label_button_sign_in">Sign In</string>
+
     <!--  Error Message  -->
     <string name="error_message_field_cannot_be_empty">%s cannot be empty</string>
     <string name="error_message_field_cannot_be_more_than_limit">%s cannot be more than %d characters</string>
+    <string name="error_message_field_cannot_be_less_than_limit">%s cannot be less than %d characters</string>
     <string name="error_message_field_email_is_in_invalid_format">Email is in invalid format</string>
 
     <!--  Image Description  -->
     <string name="image_splash_logo">App logo in initial page</string>
     <string name="image_login_header">Image of header login</string>
+    <string name="image_login_logo">Image of logo header login</string>
 </resources>

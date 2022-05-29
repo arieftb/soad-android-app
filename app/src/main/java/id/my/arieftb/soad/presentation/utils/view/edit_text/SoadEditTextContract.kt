@@ -2,7 +2,8 @@ package id.my.arieftb.soad.presentation.utils.view.edit_text
 
 class SoadEditTextContract {
     interface View {
-        var limit: Int
+        var max: Int
+        var min: Int
         var isValid: Boolean
         var isRequired: Boolean
         var label: String
@@ -12,7 +13,8 @@ class SoadEditTextContract {
         fun init()
         fun validate(text: String)
         fun isValidEmptiness(text: String): Boolean
-        fun isValidLimit(text: String): Boolean
+        fun isValidMax(text: String): Boolean
+        fun isValidMin(text: String): Boolean
         fun isValidEmail(text: String) : Boolean
     }
 

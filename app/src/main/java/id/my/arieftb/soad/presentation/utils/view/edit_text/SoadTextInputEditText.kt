@@ -15,7 +15,8 @@ class SoadTextInputEditText : TextInputLayout, SoadTextInputEditTextContract.Vie
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         context.obtainStyledAttributes(attrs, R.styleable.SoadTextInputEditText).apply {
             try {
-                limit = getInteger(R.styleable.SoadTextInputEditText_limit, 0)
+                max = getInteger(R.styleable.SoadTextInputEditText_max, 0)
+                min = getInteger(R.styleable.SoadTextInputEditText_min, 0)
                 isRequired = getBoolean(R.styleable.SoadTextInputEditText_isRequired, false)
                 type = getInteger(R.styleable.SoadTextInputEditText_type, 1)
             } catch (e: Exception) {
@@ -34,7 +35,8 @@ class SoadTextInputEditText : TextInputLayout, SoadTextInputEditTextContract.Vie
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SoadTextInputEditText).apply {
             try {
-                limit = getInteger(R.styleable.SoadTextInputEditText_limit, 0)
+                max = getInteger(R.styleable.SoadTextInputEditText_max, 0)
+                min = getInteger(R.styleable.SoadTextInputEditText_min, 0)
                 isRequired = getBoolean(R.styleable.SoadTextInputEditText_isRequired, false)
                 type = getInteger(R.styleable.SoadTextInputEditText_type, 1)
             } catch (e: Exception) {
@@ -45,7 +47,8 @@ class SoadTextInputEditText : TextInputLayout, SoadTextInputEditTextContract.Vie
         init()
     }
 
-    override var limit: Int = 0
+    override var max: Int = 0
+    override var min: Int = 0
     override var isValid: Boolean = if (this::editText.isInitialized) {
         editText.isValid
     } else {
@@ -62,7 +65,8 @@ class SoadTextInputEditText : TextInputLayout, SoadTextInputEditTextContract.Vie
         editText = SoadEditText(context).apply {
             label = this@SoadTextInputEditText.hint.toString()
             isRequired = this@SoadTextInputEditText.isRequired
-            limit = this@SoadTextInputEditText.limit
+            max = this@SoadTextInputEditText.max
+            min = this@SoadTextInputEditText.min
             listener = this@SoadTextInputEditText
             inputType = InputType.TYPE_CLASS_TEXT or this@SoadTextInputEditText.type
             type = this@SoadTextInputEditText.type

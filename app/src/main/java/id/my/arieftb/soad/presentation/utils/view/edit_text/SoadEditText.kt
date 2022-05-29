@@ -27,9 +27,12 @@ class SoadEditText : TextInputEditText, SoadEditTextContract.View {
         init()
     }
 
-    override var limit: Int = 0
+    override var max: Int = 0
+    override var min: Int = 0
     override var isValid: Boolean =
-        isValidEmptiness(text.toString()) && isValidLimit(text.toString()) && isValidEmail(text.toString())
+        isValidEmptiness(text.toString()) && isValidMin(text.toString()) && isValidMax(text.toString()) && isValidEmail(
+            text.toString()
+        )
 
 
     override var isRequired: Boolean = false
@@ -55,7 +58,7 @@ class SoadEditText : TextInputEditText, SoadEditTextContract.View {
     }
 
     override fun validate(text: String) {
-        if (isValidLimit(text) && isValidEmptiness(text) && isValidEmail(text)) {
+        if (isValidEmptiness(text) && isValidMin(text) && isValidMax(text) && isValidEmail(text)) {
             isValid = true
             listener?.onTextValid()
         }
@@ -75,12 +78,12 @@ class SoadEditText : TextInputEditText, SoadEditTextContract.View {
         return true
     }
 
-    override fun isValidLimit(text: String): Boolean {
-        if (limit > 0 && text.length > limit) {
+    override fun isValidMax(text: String): Boolean {
+        if (max > 0 && text.length > max) {
             listener?.onTextInvalid(
                 resources.getString(
                     R.string.error_message_field_cannot_be_more_than_limit,
-                    label, limit
+                    label, max
                 )
             )
             return false
@@ -88,6 +91,21 @@ class SoadEditText : TextInputEditText, SoadEditTextContract.View {
 
         return true
     }
+
+    override fun isValidMin(text: String): Boolean {
+        if (min > 0 && text.length < min) {
+            listener?.onTextInvalid(
+                resources.getString(
+                    R.string.error_message_field_cannot_be_less_than_limit,
+                    label, min
+                )
+            )
+            return false
+        }
+
+        return true
+    }
+
 
     override fun isValidEmail(text: String): Boolean {
         if ((type == InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS && !Patterns.EMAIL_ADDRESS.matcher(
