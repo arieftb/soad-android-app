@@ -49,10 +49,14 @@ class SoadTextInputEditText : TextInputLayout, SoadTextInputEditTextContract.Vie
 
     override var max: Int = 0
     override var min: Int = 0
-    override var isValid: Boolean = if (this::editText.isInitialized) {
-        editText.isValid
-    } else {
-        false
+    override var isValid: Boolean = false
+    get() {
+        field = if (this::editText.isInitialized) {
+            editText.isValid
+        } else {
+            false
+        }
+        return field
     }
 
     override var isRequired: Boolean = false

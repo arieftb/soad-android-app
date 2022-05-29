@@ -29,10 +29,13 @@ class SoadEditText : TextInputEditText, SoadEditTextContract.View {
 
     override var max: Int = 0
     override var min: Int = 0
-    override var isValid: Boolean =
-        isValidEmptiness(text.toString()) && isValidMin(text.toString()) && isValidMax(text.toString()) && isValidEmail(
-            text.toString()
-        )
+    override var isValid: Boolean = false
+        get() {
+            field = isValidEmptiness(text.toString()) && isValidMin(text.toString()) && isValidMax(text.toString()) && isValidEmail(
+                text.toString()
+            )
+            return field
+        }
 
 
     override var isRequired: Boolean = false
