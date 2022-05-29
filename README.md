@@ -17,7 +17,6 @@ Feature
 * Stories List
 * Story Detail
 * Post Story
-* Saving TV Shows as Favorite
 * App Language Setting
 * Widget
 
