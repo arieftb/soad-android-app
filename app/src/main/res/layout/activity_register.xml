@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_16sdp"
-                android:hint="@string/label_field_email"
+                android:hint="@string/label_field_name"
                 app:isRequired="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
