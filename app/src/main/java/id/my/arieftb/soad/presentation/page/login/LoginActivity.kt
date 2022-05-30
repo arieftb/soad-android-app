@@ -15,14 +15,16 @@ class LoginActivity : BaseActivityImpl<ActivityLoginBinding>(), LoginContract.Vi
     }
 
     override fun init() {
-        binding?.buttonSignIn?.setOnClickListener {
-            if (binding?.fieldEmail?.isValid == true && binding?.fieldPassword?.isValid == true) {
-                // TODO: Do Login Here
+        binding?.apply {
+            buttonSignIn.setOnClickListener {
+                if (fieldEmail.isValid && fieldPassword.isValid) {
+                    // TODO: Do Login Here
+                }
             }
-        }
 
-        binding?.labelCreateAccount?.setOnClickListener {
-            // TODO: Do Navigate to Register Activity
+            labelCreateAccount.setOnClickListener {
+                // TODO: Do Navigate to Register Activity
+            }
         }
     }
 }
