@@ -83,7 +83,7 @@
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:paddingVertical="@dimen/_12sdp"
-                android:text="@string/label_button_sign_in"
+                android:text="@string/label_button_sign_up"
                 android:textAllCaps="false"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
