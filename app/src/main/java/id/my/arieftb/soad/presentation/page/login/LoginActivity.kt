@@ -3,6 +3,7 @@ package id.my.arieftb.soad.presentation.page.login
 import android.os.Bundle
 import id.my.arieftb.soad.databinding.ActivityLoginBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
+import id.my.arieftb.soad.presentation.page.register.RegisterActivity
 
 class LoginActivity : BaseActivityImpl<ActivityLoginBinding>(), LoginContract.View {
     override fun initViewBinding(): ActivityLoginBinding {
@@ -23,7 +24,8 @@ class LoginActivity : BaseActivityImpl<ActivityLoginBinding>(), LoginContract.Vi
             }
 
             labelCreateAccount.setOnClickListener {
-                // TODO: Do Navigate to Register Activity
+                startActivity(RegisterActivity.navigate(this@LoginActivity))
+                finish()
             }
         }
     }
