@@ -25,7 +25,6 @@ class LoginActivity : BaseActivityImpl<ActivityLoginBinding>(), LoginContract.Vi
 
             labelCreateAccount.setOnClickListener {
                 startActivity(RegisterActivity.navigate(this@LoginActivity))
-                finish()
             }
         }
     }
