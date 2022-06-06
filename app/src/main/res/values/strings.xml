@@ -30,4 +30,8 @@
     <string name="image_splash_logo">App logo in initial page</string>
     <string name="image_login_header">Image of header login</string>
     <string name="image_login_logo">Image of logo header login</string>
+    <string name="button_main_add">Button of add story</string>
+
+    <!--  Menu  -->
+    <string name="menu_account">Account</string>
 </resources>

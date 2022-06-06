@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">soad</string>
+
+    <string name="app_full_name">story of a dicoding</string>
+
+    <!--  Page Title  -->
+    <string name="page_title_login">Login</string>
+    <string name="page_title_register">Buat Akun</string>
+
+    <!--  Label  -->
+    <string name="label_not_have_account">Belum punya akun?</string>
+    <string name="label_have_account">Punya akun?</string>
+    <string name="label_create_account">Buat akun</string>
+    <string name="label_sign_in">Sign in</string>
+
+    <string name="label_field_default">Teks</string>
+    <string name="label_field_email">Email</string>
+    <string name="label_field_name">Nama</string>
+    <string name="label_field_password">Password</string>
+
+    <string name="label_button_sign_in">Sign In</string>
+    <string name="label_button_sign_up">Buat</string>
+
+    <!--  Error Message  -->
+    <string name="error_message_field_cannot_be_empty">%s tidak boleh kosong</string>
+    <string name="error_message_field_cannot_be_more_than_limit">%s tidak boleh lebih dari %d karakter</string>
+    <string name="error_message_field_cannot_be_less_than_limit">%s tidak boleh kurang dari %d karakter</string>
+    <string name="error_message_field_email_is_in_invalid_format">Email dalam format yang tidak benar</string>
+
+    <!--  Image Description  -->
+    <string name="image_splash_logo">Logo aplikasi</string>
+    <string name="image_login_header">gambar pada header login</string>
+    <string name="image_login_logo">gambar logo pada header login</string>
+    <string name="button_main_add">Tombol tambah story</string>
+
+    <!--  Menu  -->
+    <string name="menu_account">Akun</string>
+</resources>
