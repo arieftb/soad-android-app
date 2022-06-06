@@ -34,4 +34,5 @@
 
     <!--  Menu  -->
     <string name="menu_account">Account</string>
+    <string name="menu_home">Home</string>
 </resources>

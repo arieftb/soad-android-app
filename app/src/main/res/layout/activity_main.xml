@@ -21,12 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="?colorPrimary"
-            app:fabAlignmentMode="center"
+            app:fabAlignmentMode="end"
             app:fabAttached="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/menu_bottom_main"
-            app:navigationIcon="@drawable/ic_baseline_home_24"
-            app:navigationIconTint="@color/white" />
+            app:menu="@menu/menu_bottom_main" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_add"

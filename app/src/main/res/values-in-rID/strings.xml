@@ -36,4 +36,5 @@
 
     <!--  Menu  -->
     <string name="menu_account">Akun</string>
+    <string name="menu_home">Beranda</string>
 </resources>
