@@ -28,6 +28,10 @@
         <activity
             android:name=".presentation.page.register.RegisterActivity"
             android:theme="@style/Theme.SOAD.NoActionBar" />
+
+        <activity
+            android:name=".presentation.page.main.MainActivity"
+            android:theme="@style/Theme.SOAD" />
     </application>
 
 </manifest>

@@ -22,7 +22,6 @@
             android:layout_gravity="bottom"
             app:backgroundTint="?colorPrimary"
             app:fabAlignmentMode="end"
-            app:fabAttached="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/menu_bottom_main" />
 
