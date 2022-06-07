@@ -42,6 +42,7 @@ dependencies {
 //    Android UI
     implementation dep.android.appCompat
     implementation dep.android.material
+    implementation dep.android.swipeRefreshLayout
 
 //    Android
     implementation dep.android.kotlin
