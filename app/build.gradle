@@ -14,6 +14,11 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        buildConfigField "String", "RECAPTCHA_KEY", "\"${properties.getProperty("RECAPTCHA_KEY")}\""
     }
 
     buildTypes {
@@ -38,6 +43,8 @@ dependencies {
 
 //    Kotlin
     implementation(dep.kotlin.lib)
+    implementation(dep.kotlin.coroutineCore)
+    implementation(dep.kotlin.coroutineAndroid)
 
 //    Android UI
     implementation dep.android.appCompat
@@ -46,13 +53,18 @@ dependencies {
 
 //    Android
     implementation dep.android.kotlin
+    implementation(dep.android.lifeCycle)
 
 //    UI Size
     implementation(dep.ui.dpUnit)
     implementation(dep.ui.spUnit)
 
+//    Security
+    implementation(dep.security.recaptcha)
+
 //    Android Test
     testImplementation dep.unitTest.junit
     androidTestImplementation dep.unitTest.extJunit
     androidTestImplementation dep.instrumentTest.espresso
+    implementation(dep.kotlin.coroutineTest)
 }
