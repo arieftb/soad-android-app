@@ -3,7 +3,6 @@ package id.my.arieftb.soad.presentation.page.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import id.my.arieftb.soad.R
 import id.my.arieftb.soad.databinding.ActivityMainBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
@@ -27,14 +26,14 @@ class MainActivity : BaseActivityImpl<ActivityMainBinding>(), MainContract.View 
     }
 
     override fun init() {
-        initAppBar()
+        initMenu()
         showHomePage()
     }
 
-    override fun initAppBar() {
+    override fun initMenu() {
         binding?.apply {
-            appBarBottom.setOnMenuItemClickListener { item: MenuItem ->
-                when (item.itemId) {
+            menu.setOnItemSelectedListener {
+                when (it.itemId) {
                     R.id.home -> {
                         showHomePage()
                         true
