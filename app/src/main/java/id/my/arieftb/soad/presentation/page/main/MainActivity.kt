@@ -6,6 +6,7 @@ import android.os.Bundle
 import id.my.arieftb.soad.R
 import id.my.arieftb.soad.databinding.ActivityMainBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
+import id.my.arieftb.soad.presentation.page.home.HomeFragment
 
 class MainActivity : BaseActivityImpl<ActivityMainBinding>(), MainContract.View {
     override fun initViewBinding(): ActivityMainBinding {
@@ -56,5 +57,8 @@ class MainActivity : BaseActivityImpl<ActivityMainBinding>(), MainContract.View 
 
     override fun showHomePage() {
         supportActionBar?.title = getString(R.string.menu_home)
+        binding?.apply {
+            pushFragment(HomeFragment.navigate(), frame.id)
+        }
     }
 }

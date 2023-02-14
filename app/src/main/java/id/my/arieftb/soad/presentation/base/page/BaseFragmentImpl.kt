@@ -25,4 +25,9 @@ abstract class BaseFragmentImpl<VB : ViewBinding> : Fragment(), BaseFragment<VB>
         detachBinding()
         super.onDestroyView()
     }
+
+    override fun pushFragment(fragment: Fragment, frameId: Int) {
+        val fragmentTransaction = childFragmentManager.beginTransaction()
+        fragmentTransaction.replace(frameId, fragment).commit()
+    }
 }
