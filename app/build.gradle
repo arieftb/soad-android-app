@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -48,6 +50,11 @@ dependencies {
 
 //    Android
     implementation dep.android.kotlin
+
+//    Dependency Injection
+    implementation(dep.dependencyInjection.hilt)
+    kapt(dep.dependencyInjection.hiltCompiler)
+
 
 //    UI Size
     implementation(dep.ui.dpUnit)
