@@ -1,6 +1,7 @@
 package id.my.arieftb.soad.domain.common.use_case
 
 import id.my.arieftb.soad.domain.common.model.ResultEntity
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Use case
@@ -12,5 +13,5 @@ import id.my.arieftb.soad.domain.common.model.ResultEntity
  * @constructor Create empty Use case
  */
 interface UseCase<P, R> {
-    fun build(param: P): ResultEntity<R>
+    fun execute(param: P): Flow<ResultEntity<R>>
 }
