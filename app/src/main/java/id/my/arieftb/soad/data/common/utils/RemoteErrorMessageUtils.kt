@@ -5,7 +5,7 @@ import id.my.arieftb.soad.data.common.model.ErrorRemoteResponse
 import java.io.Reader
 
 object RemoteErrorMessageUtils {
-    fun toObject(json: Reader): ErrorRemoteResponse {
-        return Gson().fromJson(json, ErrorRemoteResponse::class.java)
+    fun toString(json: Reader): String {
+        return Gson().fromJson(json, ErrorRemoteResponse::class.java).message
     }
 }
