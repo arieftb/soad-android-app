@@ -38,6 +38,8 @@ dependencies {
 
 //    Kotlin
     implementation(dep.kotlin.lib)
+    implementation(dep.kotlin.coroutineCore)
+    implementation(dep.kotlin.coroutineAndroid)
 
 //    Android UI
     implementation dep.android.appCompat
