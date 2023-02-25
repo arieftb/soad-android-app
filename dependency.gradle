@@ -1,5 +1,5 @@
 def version = [:]
-version.kotlin = "1.6.21"
+version.kotlin = "1.8.0"
 version.androidKotlin = "1.7.0"
 version.navigation = "2.3.5"
 version.junit5 = "1.7.1.1"
@@ -55,7 +55,8 @@ kotlin.coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version.c
 kotlin.coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version.coroutine"
 kotlin.junit = "org.jetbrains.kotlin:kotlin-test-junit:$version.kotlin"
 kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$version.kotlin"
-kotlin.coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version.kotlin"
+kotlin.coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version.coroutine"
+kotlin.reflect = "org.jetbrains.kotlin:kotlin-reflect:$version.kotlin"
 dep.kotlin = kotlin
 
 def android = [:]

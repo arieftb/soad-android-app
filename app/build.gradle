@@ -48,6 +48,7 @@ dependencies {
     implementation(dep.kotlin.lib)
     implementation(dep.kotlin.coroutineCore)
     implementation(dep.kotlin.coroutineAndroid)
+    implementation(dep.kotlin.reflect)
 
 //    Android UI
     implementation dep.android.appCompat
@@ -75,6 +76,7 @@ dependencies {
     testImplementation(dep.unitTest.mockk)
     testImplementation(dep.unitTest.mockkAndroid)
     testImplementation(dep.unitTest.mockkAgent)
+    testImplementation(dep.kotlin.coroutineTest)
     androidTestImplementation dep.unitTest.extJunit
     androidTestImplementation dep.instrumentTest.espresso
 }
