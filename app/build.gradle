@@ -51,6 +51,9 @@ dependencies {
     implementation(dep.ui.dpUnit)
     implementation(dep.ui.spUnit)
 
+//    Utils
+    implementation(dep.utils.gson)
+
 //    Android Test
     testImplementation dep.unitTest.junit
     androidTestImplementation dep.unitTest.extJunit
