@@ -39,6 +39,7 @@ version.swipeRefreshLayout = "1.1.0"
 version.gson = "2.10.1"
 version.coroutine = "1.6.4"
 version.kotest = "5.5.5"
+version.timber = "5.0.1"
 
 ext.version = version
 
@@ -137,6 +138,7 @@ logging.leakCanary = "com.squareup.leakcanary:leakcanary-android:$version.leakCa
 logging.chucker = "com.github.chuckerteam.chucker:library:$version.chucker"
 logging.chuckerNoOp = "com.github.chuckerteam.chucker:library-no-op:$version.chucker"
 logging.unitTestCoverage = "org.jacoco:org.jacoco.core:$version.jacoco"
+logging.timber = "com.jakewharton.timber:timber:$version.timber"
 dep.logging = logging
 
 def security = [:]
