@@ -16,6 +16,8 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "API_URL", "\"https://story-api.dicoding.dev/\""
     }
 
     buildTypes {
@@ -57,10 +59,22 @@ dependencies {
 
 //    Android
     implementation dep.android.kotlin
+    implementation dep.android.viewModel
+    implementation dep.android.viewModelKTX
 
 //    Dependency Injection
     implementation(dep.dependencyInjection.hilt)
     kapt(dep.dependencyInjection.hiltCompiler)
+
+//    Remote Service
+    implementation(dep.remote.retrofit)
+    implementation(dep.remote.retrofitGson)
+    implementation(dep.remote.loggingInterceptor)
+
+//    Logging
+    implementation(dep.logging.timber)
+    debugImplementation(dep.logging.chucker)
+    releaseImplementation(dep.logging.chucker)
 
 
 //    UI Size
