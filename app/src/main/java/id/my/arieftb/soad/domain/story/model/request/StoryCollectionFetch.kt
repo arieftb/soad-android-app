@@ -1,7 +1,7 @@
 package id.my.arieftb.soad.domain.story.model.request
 
-import id.my.arieftb.soad.domain.common.constant.Request
-import id.my.arieftb.soad.domain.common.model.RequestMapper
+import id.my.arieftb.soad.data.common.constant.Request
+import id.my.arieftb.soad.data.common.model.RequestMapper
 
 class StoryCollectionFetch(
     val page: Int,

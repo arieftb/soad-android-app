@@ -1,4 +1,4 @@
-package id.my.arieftb.soad.domain.common.model
+package id.my.arieftb.soad.data.common.model
 
 /**
  * Request mapper

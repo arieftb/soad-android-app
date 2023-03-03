@@ -8,7 +8,7 @@ version.fragment = "1.3.4"
 version.gradle = "4.2.1"
 version.hilt = "2.44"
 version.hiltTesting = "2.35"
-version.viewModel = "2.3.1"
+version.viewModel = "2.5.1"
 version.appCompat = "1.4.1"
 version.material = "1.6.0"
 version.sizeUnit = "1.0.6"
@@ -39,6 +39,7 @@ version.swipeRefreshLayout = "1.1.0"
 version.gson = "2.10.1"
 version.coroutine = "1.6.4"
 version.kotest = "5.5.5"
+version.timber = "5.0.1"
 
 ext.version = version
 
@@ -63,7 +64,8 @@ def android = [:]
 android.kotlin = "androidx.core:core-ktx:$version.androidKotlin"
 android.appCompat = "androidx.appcompat:appcompat:$version.appCompat"
 android.material = "com.google.android.material:material:$version.material"
-android.viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version.viewModel"
+android.viewModel = "androidx.lifecycle:lifecycle-viewmodel:$version.viewModel"
+android.viewModelKTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version.viewModel"
 android.paging = "androidx.paging:paging-runtime-ktx:$version.paging"
 android.pagingTest = "androidx.paging:paging-common-ktx:$version.paging"
 android.constraintLayout = "androidx.constraintlayout:constraintlayout:$version.constraintLayout"
@@ -137,6 +139,7 @@ logging.leakCanary = "com.squareup.leakcanary:leakcanary-android:$version.leakCa
 logging.chucker = "com.github.chuckerteam.chucker:library:$version.chucker"
 logging.chuckerNoOp = "com.github.chuckerteam.chucker:library-no-op:$version.chucker"
 logging.unitTestCoverage = "org.jacoco:org.jacoco.core:$version.jacoco"
+logging.timber = "com.jakewharton.timber:timber:$version.timber"
 dep.logging = logging
 
 def security = [:]
