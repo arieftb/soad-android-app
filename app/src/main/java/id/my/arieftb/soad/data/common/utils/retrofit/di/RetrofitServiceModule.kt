@@ -10,4 +10,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RetrofitServiceModule
+object RetrofitServiceModule {
+    @Provides
+    @Singleton
+    fun provideProfileRemoteService(
+        retrofit: Retrofit
+    ): ProfileRemoteService {
+        return retrofit.create(ProfileRemoteService::class.java)
+    }
+}
