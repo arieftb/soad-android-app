@@ -43,7 +43,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/label_page_title"
-                app:type="email" />
+                app:type="text" />
 
 
             <id.my.arieftb.soad.presentation.utils.view.edit_text.SoadTextInputEditText
