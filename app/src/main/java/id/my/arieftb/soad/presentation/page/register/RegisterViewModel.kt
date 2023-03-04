@@ -13,7 +13,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -53,7 +55,9 @@ class RegisterViewModel @Inject constructor(
         }
 
         _registrationUseCase = viewModelScope.launch {
-            registerUseCase.execute(name, email, password).collect {
+            registerUseCase.execute(name, email, password).catch { cause ->
+                _registerState.value = UIState.Error(Exception(cause))
+            }.collect {
                 _registerState.value = UIState.Loading(false)
                 if (it is ResultEntity.Error) {
                     _registerState.value = UIState.Error(it.exception)
