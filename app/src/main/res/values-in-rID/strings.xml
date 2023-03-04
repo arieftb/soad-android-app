@@ -8,6 +8,9 @@
     <string name="page_title_login">Login</string>
     <string name="page_title_register">Buat Akun</string>
 
+    <!--  Button  -->
+    <string name="button_ok">OK</string>
+
     <!--  Label  -->
     <string name="label_not_have_account">Belum punya akun?</string>
     <string name="label_have_account">Punya akun?</string>
@@ -37,4 +40,9 @@
     <!--  Menu  -->
     <string name="menu_account">Akun</string>
     <string name="menu_home">Beranda</string>
+
+    <!--  Register  -->
+    <string name="register_message_error_template">Gagal mendaftarkan akun baru, %s</string>
+    <string name="register_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
+    <string name="register_message_success">Sukses mendaftarkan akun baru, silahkan pergi ke halaman login untuk masuk menggunakan akun anda</string>
 </resources>
