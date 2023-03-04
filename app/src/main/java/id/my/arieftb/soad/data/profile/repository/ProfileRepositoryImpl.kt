@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import timber.log.Timber
 import javax.inject.Inject
 
 class ProfileRepositoryImpl @Inject constructor(
@@ -26,12 +27,9 @@ class ProfileRepositoryImpl @Inject constructor(
                     name, email, password
                 )
             ).catch { cause ->
+                Timber.w(cause)
                 if (cause is HTTPException) {
                     ProfileCreateRemoteResponse(true, cause.message!!)
-                } else {
-                    flow {
-                        emit(ResultEntity.Error(Exception(cause)))
-                    }
                 }
             }.map {
                 if (it.error) {
