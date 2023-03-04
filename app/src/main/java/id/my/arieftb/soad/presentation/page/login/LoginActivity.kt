@@ -1,5 +1,7 @@
 package id.my.arieftb.soad.presentation.page.login
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import id.my.arieftb.soad.databinding.ActivityLoginBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
@@ -27,6 +29,12 @@ class LoginActivity : BaseActivityImpl<ActivityLoginBinding>(), LoginContract.Vi
             labelCreateAccount.setOnClickListener {
                 startActivity(RegisterActivity.navigate(this@LoginActivity))
             }
+        }
+    }
+
+    companion object {
+        fun navigate(from: Context): Intent {
+            return Intent(from, LoginActivity::class.java)
         }
     }
 }
