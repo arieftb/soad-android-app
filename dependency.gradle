@@ -40,6 +40,7 @@ version.gson = "2.10.1"
 version.coroutine = "1.6.4"
 version.kotest = "5.5.5"
 version.timber = "5.0.1"
+version.activity = "1.5.1"
 
 ext.version = version
 
@@ -70,6 +71,7 @@ android.paging = "androidx.paging:paging-runtime-ktx:$version.paging"
 android.pagingTest = "androidx.paging:paging-common-ktx:$version.paging"
 android.constraintLayout = "androidx.constraintlayout:constraintlayout:$version.constraintLayout"
 android.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:$version.swipeRefreshLayout"
+android.activity = "androidx.activity:activity-ktx:$version.activity"
 dep.android = android
 
 def navigation = [:]
