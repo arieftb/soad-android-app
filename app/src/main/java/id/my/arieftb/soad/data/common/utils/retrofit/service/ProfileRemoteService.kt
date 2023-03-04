@@ -7,8 +7,8 @@ import retrofit2.http.POST
 
 @JvmSuppressWildcards
 interface ProfileRemoteService {
-    @POST("register")
-    fun create(
+    @POST("v1/register")
+    suspend fun create(
         @Body body: Map<String, Any>
     ): Response<ProfileCreateRemoteResponse>
 }
