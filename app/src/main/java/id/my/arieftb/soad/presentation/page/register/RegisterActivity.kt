@@ -12,6 +12,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import id.my.arieftb.soad.R
 import id.my.arieftb.soad.databinding.ActivityRegisterBinding
+import id.my.arieftb.soad.domain.common.exception.EmailAttributeMissingException
+import id.my.arieftb.soad.domain.common.exception.NameAttributeMissingException
+import id.my.arieftb.soad.domain.common.exception.PasswordSmallerThanException
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
 import id.my.arieftb.soad.presentation.common.state.UIState
 import id.my.arieftb.soad.presentation.page.login.LoginActivity
@@ -63,6 +66,37 @@ class RegisterActivity : BaseActivityImpl<ActivityRegisterBinding>(), RegisterCo
                 viewModel.registerState.collect {
                     when (it) {
                         is UIState.Error -> {
+                            if (it.exception is NameAttributeMissingException) {
+                                onFailureRegistration(
+                                    String.format(
+                                        getString(R.string.error_message_field_cannot_be_empty),
+                                        getString(R.string.label_field_name)
+                                    )
+                                )
+                                return@collect
+                            }
+
+                            if (it.exception is EmailAttributeMissingException) {
+                                onFailureRegistration(
+                                    String.format(
+                                        getString(R.string.error_message_field_cannot_be_empty),
+                                        getString(R.string.label_field_email)
+                                    )
+                                )
+                                return@collect
+                            }
+
+                            if (it.exception is PasswordSmallerThanException) {
+                                onFailureRegistration(
+                                    String.format(
+                                        getString(R.string.error_message_field_cannot_be_less_than_limit),
+                                        getString(R.string.label_field_password),
+                                        8
+                                    )
+                                )
+                                return@collect
+                            }
+
                             onErrorRegistration()
                         }
                         is UIState.Failure -> {
