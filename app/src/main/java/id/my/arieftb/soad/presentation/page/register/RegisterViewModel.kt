@@ -10,12 +10,12 @@ import id.my.arieftb.soad.domain.common.model.ResultEntity
 import id.my.arieftb.soad.domain.profile.use_case.CreateProfileUseCase
 import id.my.arieftb.soad.presentation.common.state.UIState
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,30 +35,37 @@ class RegisterViewModel @Inject constructor(
         _registerState.value = UIState.Loading(true)
 
         if (name.isNullOrEmpty()) {
+            _registerState.value = UIState.Loading(false)
             _registerState.value = UIState.Error(NameAttributeMissingException())
             return
         }
 
         if (email.isNullOrEmpty()) {
+            _registerState.value = UIState.Loading(false)
             _registerState.value = UIState.Error(EmailAttributeMissingException())
             return
         }
 
         if (password.isNullOrEmpty()) {
+            _registerState.value = UIState.Loading(false)
             _registerState.value = UIState.Error(PasswordSmallerThanException())
             return
         }
 
         if (password.length < 8) {
+            _registerState.value = UIState.Loading(false)
             _registerState.value = UIState.Error(PasswordSmallerThanException())
             return
         }
 
         _registrationUseCase = viewModelScope.launch {
             registerUseCase.execute(name, email, password).catch { cause ->
+                _registerState.value = UIState.Loading(false)
+                delay(1)
                 _registerState.value = UIState.Error(Exception(cause))
             }.collect {
                 _registerState.value = UIState.Loading(false)
+                delay(1)
                 if (it is ResultEntity.Error) {
                     _registerState.value = UIState.Error(it.exception)
                     return@collect
