@@ -94,6 +94,22 @@ class AuthRepositoryImplTest : BehaviorSpec({
                     }.collect()
                 }
             }
+
+            And("remote thrown exception") {
+                val value =
+                    RuntimeException("error")
+                coEvery {
+                    remote.logIn(any())
+                } throws value
+
+                Then("value should be error").config(coroutineTestScope = true) {
+                    val repository = AuthRepositoryImpl(remote)
+                    repository.logIn(email, password).collect {
+                        it.shouldBeInstanceOf<ResultEntity.Error>()
+                        it.shouldBeSameInstanceAs(value)
+                    }
+                }
+            }
         }
     }
 })
