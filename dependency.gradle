@@ -41,6 +41,7 @@ version.coroutine = "1.6.4"
 version.kotest = "5.5.5"
 version.timber = "5.0.1"
 version.activity = "1.5.1"
+version.turbine = "0.12.1"
 
 ext.version = version
 
@@ -125,6 +126,7 @@ unitTest.junit = "junit:junit:$version.junit4"
 unitTest.junitGradle = "de.mannodermaus.gradle.plugins:android-junit5:$version.junitGradle"
 unitTest.extJunit = "androidx.test.ext:junit:$version.extJunit"
 unitTest.kotest = "io.kotest:kotest-runner-junit5:$version.kotest"
+unitTest.turbine = "app.cash.turbine:turbine:$version.turbine"
 dep.unitTest = unitTest
 
 def instrumentTest = [:]
