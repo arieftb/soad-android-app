@@ -59,7 +59,7 @@ class CreateProfileUseCaseImpl @Inject constructor(
                     is ResultEntity.Failure -> {
                         Timber.w(createResult.message)
                         flow {
-                            emit(ResultEntity.Success(false))
+                            emit(createResult)
                         }
                     }
                     is ResultEntity.Error -> {
