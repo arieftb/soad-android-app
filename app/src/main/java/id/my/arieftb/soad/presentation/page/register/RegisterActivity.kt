@@ -38,6 +38,7 @@ class RegisterActivity : BaseActivityImpl<ActivityRegisterBinding>(), RegisterCo
         binding?.apply {
             buttonCreate.setOnClickListener {
                 if (fieldName.isValid && fieldEmail.isValid && fieldPassword.isValid) {
+                    snackBar?.dismiss()
                     submitRegistration()
                 }
             }
