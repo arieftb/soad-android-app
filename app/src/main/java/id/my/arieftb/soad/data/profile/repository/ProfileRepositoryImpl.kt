@@ -29,8 +29,11 @@ class ProfileRepositoryImpl @Inject constructor(
             ).catch { cause ->
                 Timber.w(cause)
                 if (cause is HTTPException) {
-                    ProfileCreateRemoteResponse(true, cause.message!!)
+                    emit(ProfileCreateRemoteResponse(true, cause.message!!))
+                    return@catch
                 }
+
+                throw cause
             }.map {
                 if (it.error) {
                     return@map ResultEntity.Failure(it.message)

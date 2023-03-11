@@ -8,8 +8,11 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.string.shouldBeEqualIgnoringCase
 import io.kotest.matchers.types.shouldBeInstanceOf
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.coEvery
 import io.mockk.mockk
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 class ProfileRepositoryImplTest : BehaviorSpec({
@@ -80,16 +83,17 @@ class ProfileRepositoryImplTest : BehaviorSpec({
             }
 
             And("remote return exception") {
+                val value = RuntimeException("error")
                 coEvery {
                     remote.create(any())
                 } returns flow {
-                    throw RuntimeException("error")
+                    throw value
                 }
 
-                Then("value should be result error").config(true) {
-                    repository.create(name, email, password).collect {
-                        it.shouldBeInstanceOf<ResultEntity.Error>()
-                    }
+                Then("value should be catch").config(true) {
+                    repository.create(name, email, password).catch { cause ->
+                        cause.shouldBeSameInstanceAs(value)
+                    }.collect()
                 }
             }
 
