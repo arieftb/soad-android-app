@@ -10,4 +10,8 @@
             <enum name="password" value="128" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="Button">
+        <attr name="android:text" format="string" />
+    </declare-styleable>
 </resources>
