@@ -106,7 +106,7 @@ class AuthRepositoryImplTest : BehaviorSpec({
                     val repository = AuthRepositoryImpl(remote)
                     repository.logIn(email, password).collect {
                         it.shouldBeInstanceOf<ResultEntity.Error>()
-                        it.shouldBeSameInstanceAs(value)
+                        it.exception.shouldBeSameInstanceAs(value)
                     }
                 }
             }
