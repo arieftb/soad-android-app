@@ -17,7 +17,7 @@ class ProfileRemoteDataSourceRetrofit @Inject constructor(
         return flow {
             emit(profileRemoteService.create(param.toBody()))
         }.flatMapConcat {
-            if (it.isSuccessful) {
+            if (!it.isSuccessful) {
                 return@flatMapConcat flow {
                     throw HTTPException(
                         it.code(),

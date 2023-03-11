@@ -61,6 +61,7 @@ dependencies {
     implementation dep.android.kotlin
     implementation dep.android.viewModel
     implementation dep.android.viewModelKTX
+    implementation(dep.android.activity)
 
 //    Dependency Injection
     implementation(dep.dependencyInjection.hilt)
@@ -94,6 +95,7 @@ dependencies {
     testImplementation(dep.unitTest.mockkAndroid)
     testImplementation(dep.unitTest.mockkAgent)
     testImplementation(dep.kotlin.coroutineTest)
+    testImplementation(dep.unitTest.turbine)
     androidTestImplementation dep.unitTest.extJunit
     androidTestImplementation dep.instrumentTest.espresso
 }

@@ -48,7 +48,7 @@ class CreateProfileUseCaseImpl @Inject constructor(
         try {
             return repository.create(name, email, password).catch { cause ->
                 Timber.w(cause)
-                ResultEntity.Success(false)
+                emit(ResultEntity.Success(false))
             }.flatMapConcat { createResult ->
                 when (createResult) {
                     is ResultEntity.Success -> {
@@ -59,7 +59,7 @@ class CreateProfileUseCaseImpl @Inject constructor(
                     is ResultEntity.Failure -> {
                         Timber.w(createResult.message)
                         flow {
-                            emit(ResultEntity.Success(false))
+                            emit(createResult)
                         }
                     }
                     is ResultEntity.Error -> {

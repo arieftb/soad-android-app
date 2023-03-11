@@ -6,7 +6,7 @@ class FormatValidator {
             if (emailAddress.isNullOrEmpty()) {
                 return false
             }
-            return Regex("^[A-Za-z](.*)(@)(.+)(\\\\.)(.+)").matches(emailAddress)
+            return Regex("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})\$").matches(emailAddress)
         }
     }
 }

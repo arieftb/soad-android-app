@@ -6,6 +6,9 @@
     <string name="page_title_login">Login</string>
     <string name="page_title_register">Create Account</string>
 
+    <!--  Button  -->
+    <string name="button_ok">OK</string>
+
     <!--  Label  -->
     <string name="label_not_have_account">Don\'t have account yet?</string>
     <string name="label_have_account">Do have account?</string>
@@ -35,4 +38,9 @@
     <!--  Menu  -->
     <string name="menu_account">Account</string>
     <string name="menu_home">Home</string>
+
+    <!--  Register  -->
+    <string name="register_message_error_template">Failed to register a new account, %s</string>
+    <string name="register_message_error_something_went_wrong">Something went wrong, please try again later</string>
+    <string name="register_message_success">Success to register a new account, go to login page to use your account</string>
 </resources>

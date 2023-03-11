@@ -10,6 +10,7 @@ import id.my.arieftb.soad.domain.profile.repository.ProfileRepository
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
+import io.kotest.matchers.comparables.shouldBeEqualComparingTo
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
@@ -66,17 +67,18 @@ class CreateProfileUseCaseImplTest : BehaviorSpec({
             }
 
             and("repo result is failure") {
+                val value = "failure"
                 coEvery {
                     repository.create(any(), any(), any())
                 } returns
                         flow {
-                            emit(ResultEntity.Failure("failure"))
+                            emit(ResultEntity.Failure(value))
                         }
 
-                Then("value should be success false").config(true) {
+                Then("value should be failure").config(true) {
                     useCase.execute(name, email, password).collect {
-                        it.shouldBeInstanceOf<ResultEntity.Success<Boolean>>()
-                        it.data.shouldBeFalse()
+                        it.shouldBeInstanceOf<ResultEntity.Failure>()
+                        it.message.shouldBeEqualComparingTo(value)
                     }
                 }
             }

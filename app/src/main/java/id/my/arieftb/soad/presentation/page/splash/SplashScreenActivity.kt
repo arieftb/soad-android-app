@@ -1,13 +1,13 @@
 package id.my.arieftb.soad.presentation.page.splash
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import androidx.lifecycle.lifecycleScope
 import id.my.arieftb.soad.databinding.ActivitySplashBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
 import id.my.arieftb.soad.presentation.page.login.LoginActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : BaseActivityImpl<ActivitySplashBinding>() {
@@ -18,9 +18,10 @@ class SplashScreenActivity : BaseActivityImpl<ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
+        lifecycleScope.launch {
+            delay(3000)
+            startActivity(LoginActivity.navigate(this@SplashScreenActivity))
             finish()
-        }, 3000)
+        }
     }
 }
