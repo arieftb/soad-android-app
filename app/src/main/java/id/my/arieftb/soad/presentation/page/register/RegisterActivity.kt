@@ -126,6 +126,11 @@ class RegisterActivity : BaseActivityImpl<ActivityRegisterBinding>(), RegisterCo
     override fun onLoadingRegistration(isLoading: Boolean) {
         binding?.apply {
             buttonCreate.isEnabled = !isLoading
+            if (isLoading) {
+                buttonCreate.showProgress()
+            } else {
+                buttonCreate.hideProgress()
+            }
         }
     }
 
