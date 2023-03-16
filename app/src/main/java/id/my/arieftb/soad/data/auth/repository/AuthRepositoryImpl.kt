@@ -2,18 +2,20 @@ package id.my.arieftb.soad.data.auth.repository
 
 import id.my.arieftb.soad.data.auth.model.log_in.AuthLogInRemoteResponse
 import id.my.arieftb.soad.data.auth.model.log_in.AuthLogInRequest
+import id.my.arieftb.soad.data.auth.source.local.AuthLocalSource
 import id.my.arieftb.soad.data.auth.source.remote.AuthRemoteSource
 import id.my.arieftb.soad.data.common.exception.HTTPException
 import id.my.arieftb.soad.domain.auth.repository.AuthRepository
 import id.my.arieftb.soad.domain.common.model.ResultEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val remote: AuthRemoteSource
+    private val remote: AuthRemoteSource,
+    private val local: AuthLocalSource,
 ) : AuthRepository {
     override fun logIn(email: String, password: String): Flow<ResultEntity<Boolean>> {
         try {
@@ -28,12 +30,30 @@ class AuthRepositoryImpl @Inject constructor(
                 }
 
                 throw it
-            }.map {
+            }.flatMapConcat {
                 if (it.error) {
-                    return@map ResultEntity.Failure(it.message)
+                    return@flatMapConcat flow {
+                        emit(ResultEntity.Failure(it.message))
+                    }
                 }
 
-                return@map ResultEntity.Success(true)
+                if (it.loginResult == null) {
+                    return@flatMapConcat flow {
+                        emit(ResultEntity.Success(false))
+                    }
+                }
+
+                if (it.loginResult.token.isEmpty()) {
+                    return@flatMapConcat flow {
+                        emit(ResultEntity.Success(false))
+                    }
+                }
+
+                local.save(it.loginResult.token).flatMapConcat {
+                    flow {
+                        emit(ResultEntity.Success(it))
+                    }
+                }
             }
         } catch (e: Exception) {
             return flow {
