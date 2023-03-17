@@ -45,4 +45,8 @@
     <string name="register_message_error_template">Gagal mendaftarkan akun baru, %s</string>
     <string name="register_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
     <string name="register_message_success">Sukses mendaftarkan akun baru, silahkan pergi ke halaman login untuk masuk menggunakan akun anda</string>
+
+    <!--  Login  -->
+    <string name="login_message_error_template">Gagal masuk, %s</string>
+    <string name="login_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
 </resources>

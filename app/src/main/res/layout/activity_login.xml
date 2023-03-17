@@ -79,7 +79,7 @@
                 app:passwordToggleEnabled="true"
                 app:type="password" />
 
-            <com.google.android.material.button.MaterialButton
+            <id.my.arieftb.soad.presentation.common.view.button.Button
                 android:id="@+id/button_sign_in"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

@@ -4,8 +4,15 @@ import id.my.arieftb.soad.presentation.common.state.UIState
 import kotlinx.coroutines.flow.StateFlow
 
 class LoginContract {
-    interface View{
+    interface View {
         fun init()
+
+        fun submitLogin()
+        fun subscribeLogin()
+        fun onLoadingLogin(isLoading: Boolean)
+        fun onErrorLogin()
+        fun onFailureLogin(message: String)
+        fun onSuccessLogin()
     }
 
     interface ViewModel {

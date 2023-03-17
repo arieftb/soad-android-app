@@ -43,4 +43,8 @@
     <string name="register_message_error_template">Failed to register a new account, %s</string>
     <string name="register_message_error_something_went_wrong">Something went wrong, please try again later</string>
     <string name="register_message_success">Success to register a new account, go to login page to use your account</string>
+
+    <!--  Login  -->
+    <string name="login_message_error_template">Failed to log in, %s</string>
+    <string name="login_message_error_something_went_wrong">Something went wrong, please try again later</string>
 </resources>
