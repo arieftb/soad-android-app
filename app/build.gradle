@@ -72,6 +72,9 @@ dependencies {
     implementation(dep.remote.retrofitGson)
     implementation(dep.remote.loggingInterceptor)
 
+//    Local Service
+    implementation(dep.local.prefDataStore)
+
 //    Logging
     implementation(dep.logging.timber)
     debugImplementation(dep.logging.chucker)

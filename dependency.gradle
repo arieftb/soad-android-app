@@ -42,6 +42,7 @@ version.kotest = "5.5.5"
 version.timber = "5.0.1"
 version.activity = "1.5.1"
 version.turbine = "0.12.1"
+version.prefDataStore = "1.0.0"
 
 ext.version = version
 
@@ -109,6 +110,7 @@ local.room = "androidx.room:room-ktx:$version.room"
 local.roomCompiler = "androidx.room:room-compiler:$version.room"
 local.roomTest = "androidx.room:room-testing:$version.room"
 local.sqlite = "androidx.sqlite:sqlite-ktx:$version.sqlite"
+local.prefDataStore = "androidx.datastore:datastore-preferences:$version.prefDataStore"
 dep.local = local
 
 def unitTest = [:]
