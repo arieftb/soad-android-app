@@ -25,7 +25,7 @@ class SplashScreenViewModel @Inject constructor(
     override val loginStatusState: StateFlow<UIState<Boolean>>
         get() = _loginStatusState.asStateFlow()
 
-    override fun fetchLogInStatus() {
+    override fun fetchLoginStatus() {
         _getLoginStatus?.cancel()
         _loginStatusState.value = UIState.Loading(true)
         _getLoginStatus = viewModelScope.launch {

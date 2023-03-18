@@ -7,6 +7,11 @@ interface SplashScreenContract {
     interface ViewModel {
         val loginStatusState: StateFlow<UIState<Boolean>>
 
-        fun fetchLogInStatus()
+        fun fetchLoginStatus()
+    }
+
+    interface View {
+        fun fetchLoginStatus()
+        fun subscribeLoginStatus()
     }
 }
