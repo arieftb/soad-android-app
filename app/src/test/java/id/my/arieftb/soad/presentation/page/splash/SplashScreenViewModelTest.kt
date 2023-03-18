@@ -41,7 +41,7 @@ class SplashScreenViewModelTest : BehaviorSpec({
                     val viewModel = SplashScreenViewModel(getLogInStatus)
 
                     viewModel.loginStatusState.test {
-                        viewModel.fetchLogInStatus()
+                        viewModel.fetchLoginStatus()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -73,7 +73,7 @@ class SplashScreenViewModelTest : BehaviorSpec({
                     val viewModel = SplashScreenViewModel(getLogInStatus)
 
                     viewModel.loginStatusState.test {
-                        viewModel.fetchLogInStatus()
+                        viewModel.fetchLoginStatus()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -105,7 +105,7 @@ class SplashScreenViewModelTest : BehaviorSpec({
                     val viewModel = SplashScreenViewModel(getLogInStatus)
 
                     viewModel.loginStatusState.test {
-                        viewModel.fetchLogInStatus()
+                        viewModel.fetchLoginStatus()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -137,7 +137,7 @@ class SplashScreenViewModelTest : BehaviorSpec({
                     val viewModel = SplashScreenViewModel(getLogInStatus)
 
                     viewModel.loginStatusState.test {
-                        viewModel.fetchLogInStatus()
+                        viewModel.fetchLoginStatus()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -169,7 +169,7 @@ class SplashScreenViewModelTest : BehaviorSpec({
                     val viewModel = SplashScreenViewModel(getLogInStatus)
 
                     viewModel.loginStatusState.test {
-                        viewModel.fetchLogInStatus()
+                        viewModel.fetchLoginStatus()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
