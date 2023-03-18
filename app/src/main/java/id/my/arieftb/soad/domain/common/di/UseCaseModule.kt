@@ -42,6 +42,14 @@ object UseCaseModule {
     }
 
     @Provides
+    fun provideLogOutAuthUseCase(
+        @IO dispatcher: CoroutineDispatcher,
+        repository: AuthRepository,
+    ): LogOutAuthUseCase {
+        return LogOutAuthUseCaseImpl(dispatcher, repository)
+    }
+
+    @Provides
     fun provideGetAuthUseCase(
         @IO dispatcher: CoroutineDispatcher,
         repository: AuthRepository,
