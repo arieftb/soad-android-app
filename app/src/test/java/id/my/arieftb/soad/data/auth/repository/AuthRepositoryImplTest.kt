@@ -7,6 +7,7 @@ import id.my.arieftb.soad.data.auth.source.remote.AuthRemoteSource
 import id.my.arieftb.soad.data.common.exception.HTTPException
 import id.my.arieftb.soad.domain.common.model.ResultEntity
 import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.comparables.shouldBeEqualComparingTo
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -164,6 +165,57 @@ class AuthRepositoryImplTest : BehaviorSpec({
                     repository.fetch().collect {
                         it.shouldBeInstanceOf<ResultEntity.Error>()
                         it.exception.shouldBeSameInstanceAs(value)
+                    }
+                }
+            }
+        }
+
+        When("delete") {
+            And("local return true") {
+                val value = true
+                coEvery {
+                    local.delete()
+                } returns flow {
+                    emit(value)
+                }
+
+                Then("value should be true") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.delete().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Success<Boolean>>()
+                        it.data.shouldBeTrue()
+                    }
+                }
+            }
+
+            And("local return false") {
+                val value = false
+                coEvery {
+                    local.delete()
+                } returns flow {
+                    emit(value)
+                }
+
+                Then("value should be false") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.delete().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Success<Boolean>>()
+                        it.data.shouldBeFalse()
+                    }
+                }
+            }
+
+            And("local thrown exception") {
+                val value = RuntimeException("error")
+                coEvery {
+                    local.delete()
+                } throws value
+
+                Then("value should be false") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.delete().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Success<Boolean>>()
+                        it.data.shouldBeFalse()
                     }
                 }
             }
