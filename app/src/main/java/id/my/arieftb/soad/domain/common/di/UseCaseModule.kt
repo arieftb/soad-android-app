@@ -5,6 +5,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import id.my.arieftb.soad.domain.auth.repository.AuthRepository
+import id.my.arieftb.soad.domain.auth.use_case.GetAuthUseCase
+import id.my.arieftb.soad.domain.auth.use_case.GetAuthUseCaseImpl
 import id.my.arieftb.soad.domain.auth.use_case.LogInAuthUseCase
 import id.my.arieftb.soad.domain.auth.use_case.LogInAuthUseCaseImpl
 import id.my.arieftb.soad.domain.profile.repository.ProfileRepository
@@ -40,5 +42,13 @@ object UseCaseModule {
         repository: AuthRepository,
     ): LogInAuthUseCase {
         return LogInAuthUseCaseImpl(dispatcher, repository)
+    }
+
+    @Provides
+    fun provideGetAuthUseCase(
+        @IO dispatcher: CoroutineDispatcher,
+        repository: AuthRepository,
+    ): GetAuthUseCase {
+        return GetAuthUseCaseImpl(dispatcher, repository)
     }
 }
