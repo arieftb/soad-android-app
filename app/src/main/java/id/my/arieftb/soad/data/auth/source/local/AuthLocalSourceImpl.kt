@@ -19,4 +19,10 @@ class AuthLocalSourceImpl @Inject constructor(
             emit(service.fetch())
         }
     }
+
+    override fun delete(): Flow<Boolean> {
+        return flow {
+            emit(service.delete())
+        }
+    }
 }
