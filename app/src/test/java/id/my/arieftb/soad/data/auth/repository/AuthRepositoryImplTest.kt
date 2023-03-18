@@ -114,4 +114,59 @@ class AuthRepositoryImplTest : BehaviorSpec({
             }
         }
     }
+
+    Given("nothing") {
+        When("fetch") {
+            And("local return not empty") {
+                val value = "0291029"
+                coEvery {
+                    local.fetch()
+                } returns
+                        flow {
+                            emit(value)
+                        }
+
+                Then("value should be success not empty") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.fetch().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Success<String>>()
+                        it.data.shouldBeEqualComparingTo(value)
+                    }
+                }
+            }
+
+            And("local return empty") {
+                val value = ""
+                coEvery {
+                    local.fetch()
+                } returns
+                        flow {
+                            emit(value)
+                        }
+
+                Then("value should be success empty") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.fetch().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Success<String>>()
+                        it.data.shouldBeEqualComparingTo(value)
+                    }
+                }
+            }
+
+            And("local thrown exception") {
+                val value = RuntimeException("error")
+                coEvery {
+                    local.fetch()
+                } throws value
+
+                Then("value should be error") {
+                    val repository = AuthRepositoryImpl(remote, local)
+                    repository.fetch().collect {
+                        it.shouldBeInstanceOf<ResultEntity.Error>()
+                        it.exception.shouldBeSameInstanceAs(value)
+                    }
+                }
+            }
+        }
+    }
 })

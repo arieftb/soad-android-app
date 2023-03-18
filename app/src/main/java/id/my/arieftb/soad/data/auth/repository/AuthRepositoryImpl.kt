@@ -7,10 +7,7 @@ import id.my.arieftb.soad.data.auth.source.remote.AuthRemoteSource
 import id.my.arieftb.soad.data.common.exception.HTTPException
 import id.my.arieftb.soad.domain.auth.repository.AuthRepository
 import id.my.arieftb.soad.domain.common.model.ResultEntity
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flatMapConcat
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
@@ -54,6 +51,18 @@ class AuthRepositoryImpl @Inject constructor(
                         emit(ResultEntity.Success(it))
                     }
                 }
+            }
+        } catch (e: Exception) {
+            return flow {
+                emit(ResultEntity.Error(e))
+            }
+        }
+    }
+
+    override fun fetch(): Flow<ResultEntity<String>> {
+        try {
+            return local.fetch().map {
+                return@map ResultEntity.Success(it)
             }
         } catch (e: Exception) {
             return flow {
