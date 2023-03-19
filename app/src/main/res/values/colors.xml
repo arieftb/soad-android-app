@@ -7,4 +7,6 @@
     <color name="pickled_blue_wood_darker">#263445</color>
     <color name="turquoise">#11c5c6</color>
     <color name="turquoise_darker">#00B6B9</color>
+
+    <color name="primary">@color/pickled_blue_wood</color>
 </resources>

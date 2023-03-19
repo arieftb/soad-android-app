@@ -47,4 +47,7 @@
     <!--  Login  -->
     <string name="login_message_error_template">Failed to log in, %s</string>
     <string name="login_message_error_something_went_wrong">Something went wrong, please try again later</string>
+
+    <!--  Account  -->
+    <string name="account_label_logout">Sign Out</string>
 </resources>
