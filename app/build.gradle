@@ -62,6 +62,7 @@ dependencies {
     implementation dep.android.viewModel
     implementation dep.android.viewModelKTX
     implementation(dep.android.activity)
+    implementation(dep.android.fragment)
 
 //    Dependency Injection
     implementation(dep.dependencyInjection.hilt)

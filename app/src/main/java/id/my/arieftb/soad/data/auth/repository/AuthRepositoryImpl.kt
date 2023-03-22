@@ -70,4 +70,16 @@ class AuthRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    override fun delete(): Flow<ResultEntity<Boolean>> {
+        try {
+            return local.delete().map {
+                return@map ResultEntity.Success(it)
+            }
+        } catch (e: Exception) {
+            return flow {
+                emit(ResultEntity.Success(false))
+            }
+        }
+    }
 }

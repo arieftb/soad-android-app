@@ -33,6 +33,14 @@ class AuthPreferenceServiceImpl @Inject constructor(
         }.first()
     }
 
+    override suspend fun delete(): Boolean {
+        dataSource.edit {
+            it.remove(stringPreferencesKey(AUTH_TOKEN))
+        }
+
+        return fetch().isEmpty()
+    }
+
     companion object {
         private const val AUTH = "auth"
         private const val AUTH_TOKEN = "auth_token"

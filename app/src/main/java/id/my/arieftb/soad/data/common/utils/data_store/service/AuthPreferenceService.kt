@@ -4,4 +4,6 @@ interface AuthPreferenceService {
     suspend fun create(token: String): Boolean
 
     suspend fun fetch(): String
+
+    suspend fun delete(): Boolean
 }

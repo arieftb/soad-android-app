@@ -1,7 +1,7 @@
-package id.my.arieftb.soad.presentation.page.splash
+package id.my.arieftb.soad.presentation.page.account
 
 import app.cash.turbine.test
-import id.my.arieftb.soad.domain.auth.use_case.GetAuthStatusUseCase
+import id.my.arieftb.soad.domain.auth.use_case.LogOutAuthUseCase
 import id.my.arieftb.soad.domain.common.model.ResultEntity
 import id.my.arieftb.soad.presentation.common.state.UIState
 import io.kotest.core.spec.style.BehaviorSpec
@@ -16,8 +16,8 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 
-class SplashScreenViewModelTest : BehaviorSpec({
-    val getLogInStatus: GetAuthStatusUseCase = mockk(relaxed = true)
+class AccountViewModelTest : BehaviorSpec({
+    val logOutUseCase: LogOutAuthUseCase = mockk(relaxed = true)
 
     beforeEach {
         Dispatchers.setMain(Dispatchers.Unconfined)
@@ -28,20 +28,18 @@ class SplashScreenViewModelTest : BehaviorSpec({
     }
 
     Given("nothing") {
-        When("fetch login status") {
-            And("${GetAuthStatusUseCase::class.java.canonicalName} return result success true") {
+        When("logOut") {
+            And("${LogOutAuthUseCase::class.java.canonicalName} return result success true") {
                 val value = ResultEntity.Success(true)
                 coEvery {
-                    getLogInStatus.invoke()
+                    logOutUseCase.invoke()
                 } returns flow {
                     emit(value)
                 }
-
-                Then("_loginStatusState should be success true").config(coroutineTestScope = true) {
-                    val viewModel = SplashScreenViewModel(getLogInStatus)
-
-                    viewModel.loginStatusState.test {
-                        viewModel.fetchLoginStatus()
+                Then("value should be success true").config(coroutineTestScope = true) {
+                    val viewModel = AccountViewModel(logOutUseCase)
+                    viewModel.logOutState.test {
+                        viewModel.logOut()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -61,19 +59,17 @@ class SplashScreenViewModelTest : BehaviorSpec({
                 }
             }
 
-            And("${GetAuthStatusUseCase::class.java.canonicalName} return result success false") {
+            And("${LogOutAuthUseCase::class.java.canonicalName} return result success false") {
                 val value = ResultEntity.Success(false)
                 coEvery {
-                    getLogInStatus.invoke()
+                    logOutUseCase.invoke()
                 } returns flow {
                     emit(value)
                 }
-
-                Then("_loginStatusState should be success false").config(coroutineTestScope = true) {
-                    val viewModel = SplashScreenViewModel(getLogInStatus)
-
-                    viewModel.loginStatusState.test {
-                        viewModel.fetchLoginStatus()
+                Then("value should be success false").config(coroutineTestScope = true) {
+                    val viewModel = AccountViewModel(logOutUseCase)
+                    viewModel.logOutState.test {
+                        viewModel.logOut()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -93,19 +89,17 @@ class SplashScreenViewModelTest : BehaviorSpec({
                 }
             }
 
-            And("${GetAuthStatusUseCase::class.java.canonicalName} return result failure") {
+            And("${LogOutAuthUseCase::class.java.canonicalName} return result failure") {
                 val value = ResultEntity.Failure("failure")
                 coEvery {
-                    getLogInStatus.invoke()
+                    logOutUseCase.invoke()
                 } returns flow {
                     emit(value)
                 }
-
-                Then("_loginStatusState should be success false").config(coroutineTestScope = true) {
-                    val viewModel = SplashScreenViewModel(getLogInStatus)
-
-                    viewModel.loginStatusState.test {
-                        viewModel.fetchLoginStatus()
+                Then("value should be success false").config(coroutineTestScope = true) {
+                    val viewModel = AccountViewModel(logOutUseCase)
+                    viewModel.logOutState.test {
+                        viewModel.logOut()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -125,19 +119,17 @@ class SplashScreenViewModelTest : BehaviorSpec({
                 }
             }
 
-            And("${GetAuthStatusUseCase::class.java.canonicalName} return result error") {
-                val value = ResultEntity.Error(RuntimeException("error"))
+            And("${LogOutAuthUseCase::class.java.canonicalName} return result error") {
+                val value = ResultEntity.Error(RuntimeException("failure"))
                 coEvery {
-                    getLogInStatus.invoke()
+                    logOutUseCase.invoke()
                 } returns flow {
                     emit(value)
                 }
-
-                Then("_loginStatusState should be success false").config(coroutineTestScope = true) {
-                    val viewModel = SplashScreenViewModel(getLogInStatus)
-
-                    viewModel.loginStatusState.test {
-                        viewModel.fetchLoginStatus()
+                Then("value should be success false").config(coroutineTestScope = true) {
+                    val viewModel = AccountViewModel(logOutUseCase)
+                    viewModel.logOutState.test {
+                        viewModel.logOut()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()
@@ -157,19 +149,17 @@ class SplashScreenViewModelTest : BehaviorSpec({
                 }
             }
 
-            And("${GetAuthStatusUseCase::class.java.canonicalName} return exception") {
-                val value = RuntimeException("error")
+            And("${LogOutAuthUseCase::class.java.canonicalName} return exception") {
+                val value = RuntimeException("failure")
                 coEvery {
-                    getLogInStatus.invoke()
+                    logOutUseCase.invoke()
                 } returns flow {
                     throw value
                 }
-
-                Then("_loginStatusState should be success false").config(coroutineTestScope = true) {
-                    val viewModel = SplashScreenViewModel(getLogInStatus)
-
-                    viewModel.loginStatusState.test {
-                        viewModel.fetchLoginStatus()
+                Then("value should be success false").config(coroutineTestScope = true) {
+                    val viewModel = AccountViewModel(logOutUseCase)
+                    viewModel.logOutState.test {
+                        viewModel.logOut()
                         awaitItem().shouldBeInstanceOf<UIState.Idle>()
                         awaitItem().apply {
                             shouldBeInstanceOf<UIState.Loading>()

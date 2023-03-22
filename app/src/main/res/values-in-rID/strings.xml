@@ -49,4 +49,10 @@
     <!--  Login  -->
     <string name="login_message_error_template">Gagal masuk, %s</string>
     <string name="login_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
+
+    <string name="logout_message_error_template">Gagal keluar akun, %s</string>
+    <string name="logout_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
+
+    <!--  Account  -->
+    <string name="account_label_logout">Keluar</string>
 </resources>
