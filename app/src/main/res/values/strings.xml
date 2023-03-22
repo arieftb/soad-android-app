@@ -49,6 +49,10 @@
     <string name="login_message_error_something_went_wrong">Something went wrong, please try again later</string>
 
     <!--  Logout  -->
+    <string name="logout_dialog_title">Logout</string>
+    <string name="logout_dialog_description">Are you sure want to logout?</string>
+    <string name="logout_dialog_primary_label">No</string>
+    <string name="logout_dialog_secondary_label">Yes</string>
     <string name="logout_message_error_template">Failed to log out, %s</string>
     <string name="logout_message_error_something_went_wrong">Something went wrong, please try again later</string>
 

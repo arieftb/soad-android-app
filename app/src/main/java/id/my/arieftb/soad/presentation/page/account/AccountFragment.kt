@@ -14,6 +14,7 @@ import id.my.arieftb.soad.R
 import id.my.arieftb.soad.databinding.FragmentAccountBinding
 import id.my.arieftb.soad.presentation.base.page.BaseFragmentImpl
 import id.my.arieftb.soad.presentation.common.state.UIState
+import id.my.arieftb.soad.presentation.common.view.dialog.confirmation.ConfirmationDialogFragment
 import id.my.arieftb.soad.presentation.page.login.LoginActivity
 import kotlinx.coroutines.launch
 
@@ -40,7 +41,24 @@ class AccountFragment : BaseFragmentImpl<FragmentAccountBinding>(), AccountContr
     override fun initLogout() {
         binding?.apply {
             buttonLogout.setOnClickListener {
-                logOut()
+                ConfirmationDialogFragment.navigate(
+                    title = getString(R.string.logout_dialog_title),
+                    description = getString(R.string.logout_dialog_description),
+                    primaryLabel = getString(R.string.logout_dialog_primary_label),
+                    secondaryLabel = getString(R.string.logout_dialog_secondary_label),
+                    onPrimaryButtonClickListener = {
+                        it.dismissNow()
+                    },
+                    onSecondaryButtonClickListener = {
+                        it.dismissNow()
+                        logOut()
+                    }
+                ).also {
+                    it.show(
+                        childFragmentManager,
+                        ConfirmationDialogFragment::class.java.canonicalName
+                    )
+                }
             }
         }
     }
