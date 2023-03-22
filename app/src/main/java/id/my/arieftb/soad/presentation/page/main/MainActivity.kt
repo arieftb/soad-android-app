@@ -3,12 +3,14 @@ package id.my.arieftb.soad.presentation.page.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import id.my.arieftb.soad.R
 import id.my.arieftb.soad.databinding.ActivityMainBinding
 import id.my.arieftb.soad.presentation.base.page.BaseActivityImpl
 import id.my.arieftb.soad.presentation.page.account.AccountFragment
 import id.my.arieftb.soad.presentation.page.home.HomeFragment
 
+@AndroidEntryPoint
 class MainActivity : BaseActivityImpl<ActivityMainBinding>(), MainContract.View {
     override fun initViewBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
