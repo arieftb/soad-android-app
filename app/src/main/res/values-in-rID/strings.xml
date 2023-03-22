@@ -50,6 +50,11 @@
     <string name="login_message_error_template">Gagal masuk, %s</string>
     <string name="login_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
 
+    <!--  Logout  -->
+    <string name="logout_dialog_title">Keluar Akun</string>
+    <string name="logout_dialog_description">Anda yakin ingin keluar akun?</string>
+    <string name="logout_dialog_primary_label">Tidak</string>
+    <string name="logout_dialog_secondary_label">Ya</string>
     <string name="logout_message_error_template">Gagal keluar akun, %s</string>
     <string name="logout_message_error_something_went_wrong">Ada suatu kesalahan, tolong coba lagi nanti</string>
 
