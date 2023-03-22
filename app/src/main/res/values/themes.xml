@@ -26,4 +26,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.SOAD.Dialog" parent="Theme.SOAD">
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="android:windowBackground">@color/black_80</item>
+    </style>
+
+
 </resources>
