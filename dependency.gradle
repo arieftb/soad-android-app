@@ -43,6 +43,7 @@ version.timber = "5.0.1"
 version.activity = "1.5.1"
 version.turbine = "0.12.1"
 version.prefDataStore = "1.0.0"
+version.fragment = "1.5.5"
 
 ext.version = version
 
@@ -74,6 +75,7 @@ android.pagingTest = "androidx.paging:paging-common-ktx:$version.paging"
 android.constraintLayout = "androidx.constraintlayout:constraintlayout:$version.constraintLayout"
 android.swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:$version.swipeRefreshLayout"
 android.activity = "androidx.activity:activity-ktx:$version.activity"
+android.fragment = "androidx.fragment:fragment-ktx:$version.fragment"
 dep.android = android
 
 def navigation = [:]
